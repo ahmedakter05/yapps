@@ -64,6 +64,7 @@ class Siteinfo extends CI_Controller {
 
 	public function arduino($query = NULL){
 
+		$this->output->unset_template('aries_layout');
 		$data['title'] = "AA Planetica" ;
 		$data['activepage'] = "Clients Page" ;
 		$page = NULL;
@@ -78,6 +79,7 @@ class Siteinfo extends CI_Controller {
 
 	public function get_arduino(){
 
+		$this->output->unset_template('aries_layout');
 		$data['title'] = "AA Planetica" ;
 		$data['activepage'] = "Clients Page" ;
 		$page = NULL;
@@ -85,8 +87,11 @@ class Siteinfo extends CI_Controller {
 		
 
 		$view = $this->yapps_model->get_arduino();
-		
-		var_dump($view);
+		//var_dump($view);
+		foreach ($view as $key) {
+			var_dump($key);
+			echo '</br>';
+		}
 	}
 
 	public function ops($page = 'crud_view'){
