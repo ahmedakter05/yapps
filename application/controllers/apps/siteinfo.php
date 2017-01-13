@@ -62,7 +62,37 @@ class Siteinfo extends CI_Controller {
 
 	}
 
+	public function arduino($query = NULL){
 
+		$this->output->unset_template('aries_layout');
+		$data['title'] = "AA Planetica" ;
+		$data['activepage'] = "Clients Page" ;
+		$page = NULL;
+		$type = 'arduino';
+		
+		$this->data['query'] = $query = $this->input->get('query');
+
+		$this->yapps_model->arduino($query, $type);
+		 echo '<br>' . "Thanks for the Query" . '</br>';
+		 echo '<a href="http://aapf.tk/yapps/apps/siteinfo/get_arduino">View Data</a>';
+	}
+
+	public function get_arduino(){
+
+		$this->output->unset_template('aries_layout');
+		$data['title'] = "AA Planetica" ;
+		$data['activepage'] = "Clients Page" ;
+		$page = NULL;
+		$type = 'arduino';
+		
+
+		$view = $this->yapps_model->get_arduino();
+		//var_dump($view);
+		foreach ($view as $key) {
+			var_dump($key);
+			echo '</br>';
+		}
+	}
 
 	public function ops($page = 'crud_view'){
 
