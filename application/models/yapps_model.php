@@ -1005,24 +1005,6 @@ class Yapps_model extends CI_Model
 		return $data;
 	}
 
-	public function arduino($query, $type)
-	{
-		$this->db->insert('siteinfo', array( 'name' => $type, 'description' => $query,));
-
-	}
-
-	public function get_arduino()
-	{
-		$query = $this->db->select('name, description, date')
-						  ->order_by('date', 'desc')
-						  ->where('name','arduino')
-						  ->limit(10)
-						  ->get('siteinfo');
-
-		return $query->result();
-
-	}
-	
 	public function faq_view()
 	{
 		$query = $this->db->select('*')

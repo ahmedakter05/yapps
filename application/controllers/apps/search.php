@@ -140,8 +140,6 @@ class Search extends CI_Controller {
 
 	}
 
-	
-
 	public function delete($page = 'index'){
 
 		$data['title'] = "AA Planetica" ;
